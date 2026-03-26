@@ -1,0 +1,154 @@
+/* 1. CONFIGURACIÓN BASE */
+:root {
+    --primario: #2563eb;
+    --primario-dark: #1d4ed8;
+    --secundario: #64748b;
+    --exito: #16a34a;
+    --lujo: #9333ea; /* Color morado para destacar lo premium */
+    --fondo: #f8fafc;
+    --texto: #1e293b;
+    --blanco: #ffffff;
+    --borde: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    padding-bottom: 50px;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primario), var(--primario-dark));
+    color: white;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. CONTENEDORES */
+.contenedor-principal {
+    max-width: 900px;
+    margin: -30px auto 0; /* Sube un poco para entrar en el header */
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background: var(--blanco);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--borde);
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: var(--primario-dark);
+    border-bottom: 2px solid var(--fondo);
+    padding-bottom: 10px;
+}
+
+/* 3. FORMULARIOS */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+select, input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: var(--primario);
+    ring: 2px solid var(--primario);
+}
+
+/* 4. DESGLOSE EN VIVO (ZONA DE CÁLCULO) */
+.desglose-vivo {
+    margin-top: 25px;
+    background: #f1f5f9;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 6px solid var(--primario);
+}
+
+.desglose-vivo p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.desglose-vivo span {
+    font-weight: 700;
+}
+
+.totales-previos h3 {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--primario);
+    font-size: 1.4rem;
+}
+
+/* 5. BOTONES */
+.grid-botones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.btn-primary, .btn-secondary, .btn-export {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary { background: var(--primario); color: white; margin-top: 20px; }
+.btn-primary:hover { background: var(--primario-dark); transform: translateY(-2px); }
+
+.btn-secondary { background: var(--secundario); color: white; }
+.btn-export { background: var(--exito); color: white; }
+
+/* 6. CONFIGURACIÓN PARA IMPRESIÓN (PDF) */
+@media print {
+    body { background: white; padding: 0; }
+    header, button, .btn-secondary, label, select, input, .btn-primary {
+        display: none !important; /* Oculta todo lo que sea formulario o botones */
+    }
+    .contenedor-principal { margin-top: 20px; }
+    .card { box-shadow: none; border: 1px solid #000; }
+    .desglose-vivo { border: 1px solid #ccc; background: white; }
+    h2::after { content: " - Reporte Generado"; }
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .grid-botones { grid-template-columns: 1fr; }
+}
