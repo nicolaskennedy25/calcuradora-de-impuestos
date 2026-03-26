@@ -15,4 +15,4 @@
 │
 └── /sql
     └── estructura.sql       # Script de base de datos y semillas (Seeds)
-⚙️ Configuración e InstalaciónServidor Local: Mueve la carpeta del proyecto a tu directorio de servidor (ej. C:/xampp/htdocs/calculadora-impuestos).Base de Datos:Accede a phpMyAdmin.Crea una base de datos llamada impuestos_db.Importa el archivo ubicado en /sql/estructura.sql.Conexión:Revisa php/conexion.php y ajusta las credenciales (usuario/contraseña) si es necesario.Uso:Abre tu navegador en http://localhost/calculadora-impuestos/.Selecciona un producto y ajusta la cantidad para ver los impuestos en vivo.📋 Reglas de Cálculo AplicadasConceptoValorCondiciónIVA19%Aplicado a todos los productos.Impuesto Lujo8%Solo productos marcados como 'Lujo' en DB.Descuento10%Se aplica si la cantidad es > 10.👤 AutorNicolas Kennedy - Desarrollador
+⚙️ Configuración e InstalaciónServidor Local: Mueve la carpeta del proyecto a tu directorio de servidor (ej. C:/xamp
